@@ -66,6 +66,7 @@ public class DataManager : MonoBehaviour
     }
     public void SaveData()
     {
+        Debug.Log("Save Data");
         string path = Application.persistentDataPath + _dataFile;
         bool tmp = _gameData._gameEnd;
         _gameData._gameEnd = false;

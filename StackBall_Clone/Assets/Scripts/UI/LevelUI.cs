@@ -13,12 +13,16 @@ public class LevelUI : MonoBehaviour
     private int _maxCnt;
     [SerializeField]
     private UnityEngine.UI.Slider _slider;
+    [SerializeField]
+    private UnityEngine.UI.Text _scoreUI;
+    public int _score;
     
     // Start is called before the first frame update
     void Start()
     {
         UpdateLevel();
         _maxCnt = 0;
+        _score = 0;
     }
 
     public void UpdateLevel()
@@ -35,9 +39,7 @@ public class LevelUI : MonoBehaviour
         if (_maxCnt == 0)
             _maxCnt = _manager._planeCnt;
         else
-        {
-            float ratio = 1 - ((float)_manager._planeCnt / (float)_maxCnt);
-            _slider.value = ratio;
-        }
+            _slider.value = 1 - ((float)_manager._planeCnt / (float)_maxCnt);
+        _scoreUI.text = _score.ToString();
     }
 }

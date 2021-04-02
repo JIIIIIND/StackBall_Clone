@@ -18,6 +18,7 @@ public class BallMovement : MonoBehaviour
     private float _floor;
     [SerializeField]
     private float _startYPos;
+    private Coroutine _dentBall;
 
     // Start is called before the first frame update
     public void InitRound(bool isGameEnd)
@@ -31,6 +32,7 @@ public class BallMovement : MonoBehaviour
     }
     void Start()
     {
+        _dentBall = null;
         _rig = GetComponent<Rigidbody>();
         InitRound(false);
     }
@@ -43,7 +45,11 @@ public class BallMovement : MonoBehaviour
     {
         _rig.velocity = _savedVelocity;
         _floor = collision.transform.position.y;
-        StopCoroutine("DentBall");
+        if (_dentBall != null)
+        {
+            StopCoroutine(_dentBall);
+            _dentBall = null;
+        }
         transform.localScale = new Vector3(0.6f, 0.4f, 0.6f);
         _colParticle.Play();
         // 세로 -> 가로
@@ -66,7 +72,9 @@ public class BallMovement : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         //가로 -> 세로
-        StartCoroutine("DentBall");
+        if (_dentBall != null)
+            StopCoroutine(_dentBall);
+        _dentBall = StartCoroutine(DentBall());
     }
     // Update is called once per frame
     void Update()

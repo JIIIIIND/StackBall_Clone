@@ -9,6 +9,8 @@ public class TouchEvent : MonoBehaviour
     private PlaneManager _manager;
     [SerializeField]
     private GameObject _nextRound;
+    [SerializeField]
+    private LevelUI _levelUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class TouchEvent : MonoBehaviour
 
     private void CheckTouch()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !DataManager.Instance.gameData._gameEnd)
         {
             Touch touch = Input.GetTouch(0);
 
@@ -52,6 +54,7 @@ public class TouchEvent : MonoBehaviour
         {
             Destroy(other.gameObject);
             _manager._planeCnt--;
+            _levelUI._score++;
         }
         else
         {
