@@ -16,13 +16,23 @@ public class BallMovement : MonoBehaviour
     private float _limitHeight;
     [SerializeField]
     private float _floor;
+    [SerializeField]
+    private float _startYPos;
 
     // Start is called before the first frame update
+    public void InitRound(bool isGameEnd)
+    {
+        // game clear, roll select value
+        if (isGameEnd)
+            DataManager.Instance.gameData._select = Random.Range(0, 9);
+        this.transform.position = new Vector3(0, _startYPos, -1.5f);
+        _rig.velocity = new Vector3(0, _bounce, 0);
+        _savedVelocity = _rig.velocity;
+    }
     void Start()
     {
         _rig = GetComponent<Rigidbody>();
-        _rig.velocity = new Vector3(0, _bounce, 0);
-        _savedVelocity = _rig.velocity;
+        InitRound(false);
     }
 
     private void OnTriggerEnter(Collider other)

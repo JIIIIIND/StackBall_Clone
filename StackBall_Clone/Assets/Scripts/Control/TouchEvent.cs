@@ -5,13 +5,15 @@ using UnityEngine;
 public class TouchEvent : MonoBehaviour
 {
     private Collider    _coll;
-    private bool        _gameEnd;
-    
+    [SerializeField]
+    private PlaneManager _manager;
+    [SerializeField]
+    private GameObject _nextRound;
     // Start is called before the first frame update
     void Start()
     {
         _coll = GetComponent<Collider>();
-        _gameEnd = false;
+        DataManager.Instance.gameData._gameEnd = false;
     }
 
     private void CheckTouch()
@@ -31,7 +33,7 @@ public class TouchEvent : MonoBehaviour
                 _coll.isTrigger = false;
             }
         }
-        if (!_gameEnd)
+        if (!DataManager.Instance.gameData._gameEnd)
         {
             if (Input.GetMouseButton(0))
             {
@@ -47,11 +49,16 @@ public class TouchEvent : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Plane")
+        {
             Destroy(other.gameObject);
+            _manager._planeCnt--;
+        }
         else
         {
-            _gameEnd = true;
+            DataManager.Instance.gameData._gameEnd = true;
             _coll.isTrigger = false;
+            DataManager.Instance.SaveData();
+            _nextRound.SetActive(true);
         }
     }
 

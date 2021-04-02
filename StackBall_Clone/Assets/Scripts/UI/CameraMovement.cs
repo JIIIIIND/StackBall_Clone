@@ -16,6 +16,11 @@ public class CameraMovement : MonoBehaviour
         _y = _sphere.transform.position.y;
     }
 
+    public void UpdatePosition()
+    {
+        _y = _sphere.transform.position.y;
+    }
+
     // Update is called once per frame
     void Update()
     {
