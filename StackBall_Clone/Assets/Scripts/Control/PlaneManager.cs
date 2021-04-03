@@ -60,10 +60,11 @@ public class PlaneManager : MonoBehaviour
         CleanPanel();
         while (y >= 0.0f)
         {
-            int rand = Random.Range(6, 20);
-            int[] blackArr = GetRandomNumber(Random.Range(0, panelSize - 1), panelSize);            
+            int rand = Random.Range(1, 10);
+            int[] blackArr = GetRandomNumber(Random.Range(0, panelSize - 1), panelSize);
             for (int i = 0; i < rand; i++)
             {
+                Debug.Log(blackArr.Length);
                 GameObject gameObject = Instantiate(_planeModel[DataManager.Instance.gameData._select]._model,
                     new Vector3(0, 0, 0), Quaternion.identity);
                 gameObject.transform.parent = _planes.transform;
@@ -72,7 +73,7 @@ public class PlaneManager : MonoBehaviour
                 rotate -= _rotateValue * Time.deltaTime;
                 y -= 0.4f;
                 _planeCnt++;
-                if (y >= 0.0f)
+                if (y <= 0.0f)
                     break;
             }
         }

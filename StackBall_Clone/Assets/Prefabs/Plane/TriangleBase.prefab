@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2511847486028577781}
   - component: {fileID: 4591331589900645593}
   - component: {fileID: 6641176342058895744}
+  - component: {fileID: -4214263829807258390}
   m_Layer: 0
   m_Name: TriangleBase
   m_TagString: Plane
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4168964959299918368}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.7999997, y: 5.7999997, z: 5.7999997}
+  m_LocalScale: {x: 5.2, y: 5.2, z: 5.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -103,6 +104,20 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4168964959299918368}
   m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b223939ff6ae074cac58fdcd072da33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _force: 10
+  _forceOffset: 0.1
+--- !u!114 &-4214263829807258390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4168964959299918368}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b223939ff6ae074cac58fdcd072da33, type: 3}
   m_Name: 

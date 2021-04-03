@@ -17,20 +17,22 @@ public class BallMovement : MonoBehaviour
     [SerializeField]
     private float _floor;
     [SerializeField]
-    private float _startYPos;
-    private Coroutine _dentBall;
+    private Vector3 _startPos;
+    [SerializeField]
+    private GameObject _dentObj;
+    private DentBall _dent;
 
     // Start is called before the first frame update
     public void InitRound()
     {
         // game clear, roll select value
-        this.transform.position = new Vector3(0, _startYPos, -2.1f);
+        this.transform.position = _startPos;
         _rig.velocity = new Vector3(0, _bounce, 0);
         _savedVelocity = _rig.velocity;
     }
     void Start()
     {
-        _dentBall = null;
+        _dent = _dentObj.GetComponent<DentBall>();
         _rig = GetComponent<Rigidbody>();
         InitRound();
     }
@@ -43,36 +45,18 @@ public class BallMovement : MonoBehaviour
     {
         _rig.velocity = _savedVelocity;
         _floor = collision.transform.position.y;
-        if (_dentBall != null)
-        {
-            StopCoroutine(_dentBall);
-            _dentBall = null;
-        }
-        transform.localScale = new Vector3(0.6f, 0.4f, 0.6f);
+        //stop dent
+        _dent.StopDent();
         _colParticle.Play();
         // 세로 -> 가로
     }
 
     // 가로 -> 세로
-    IEnumerator DentBall()
-    {
-        float scaleValue = transform.localScale.y;
-        while (scaleValue <= 0.6f)
-        {
-            scaleValue += Time.deltaTime;
-            transform.localScale = new Vector3(
-                transform.localScale.x - Time.deltaTime,
-                scaleValue,
-                transform.localScale.z - Time.deltaTime);
-            yield return null;
-        }
-    }
+
     private void OnCollisionExit(Collision collision)
     {
-        //가로 -> 세로
-        if (_dentBall != null)
-            StopCoroutine(_dentBall);
-        _dentBall = StartCoroutine(DentBall());
+        // StartDent
+        _dent.StartDent();
     }
     // Update is called once per frame
     void Update()
