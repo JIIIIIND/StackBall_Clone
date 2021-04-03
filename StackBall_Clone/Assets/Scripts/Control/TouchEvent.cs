@@ -52,7 +52,8 @@ public class TouchEvent : MonoBehaviour
     {
         if (other.gameObject.tag == "Plane")
         {
-            Destroy(other.gameObject);
+            GameObject parent = other.transform.parent.gameObject;
+            Destroy(parent);
             _manager._planeCnt--;
             _levelUI._score++;
         }
