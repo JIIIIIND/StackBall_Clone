@@ -21,12 +21,10 @@ public class BallMovement : MonoBehaviour
     private Coroutine _dentBall;
 
     // Start is called before the first frame update
-    public void InitRound(bool isGameEnd)
+    public void InitRound()
     {
         // game clear, roll select value
-        if (isGameEnd)
-            DataManager.Instance.gameData._select = Random.Range(0, 9);
-        this.transform.position = new Vector3(0, _startYPos, -1.5f);
+        this.transform.position = new Vector3(0, _startYPos, -2.1f);
         _rig.velocity = new Vector3(0, _bounce, 0);
         _savedVelocity = _rig.velocity;
     }
@@ -34,7 +32,7 @@ public class BallMovement : MonoBehaviour
     {
         _dentBall = null;
         _rig = GetComponent<Rigidbody>();
-        InitRound(false);
+        InitRound();
     }
 
     private void OnTriggerEnter(Collider other)

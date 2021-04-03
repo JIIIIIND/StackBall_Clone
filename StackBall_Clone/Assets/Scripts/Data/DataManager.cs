@@ -37,7 +37,6 @@ public class DataManager : MonoBehaviour
         {
             if (_gameData == null)
             {
-                Debug.Log("GameData load");
                 LoadData();
                 SaveData();
             }
@@ -49,10 +48,8 @@ public class DataManager : MonoBehaviour
     {
         string path = Application.persistentDataPath + _dataFile;
 
-        Debug.Log("Load data");
         if (File.Exists(path))
         {
-            Debug.Log("file exists");
             string jsonData = File.ReadAllText(path);
             _gameData =
                 JsonUtility.FromJson<GameData>(jsonData);
@@ -66,7 +63,6 @@ public class DataManager : MonoBehaviour
     }
     public void SaveData()
     {
-        Debug.Log("Save Data");
         string path = Application.persistentDataPath + _dataFile;
         bool tmp = _gameData._gameEnd;
         _gameData._gameEnd = false;
@@ -76,7 +72,6 @@ public class DataManager : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log("DataManager Start");
         LoadData();
         SaveData();
     }

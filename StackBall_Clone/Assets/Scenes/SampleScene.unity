@@ -6332,6 +6332,7 @@ GameObject:
   - component: {fileID: 1040461458}
   - component: {fileID: 1040461463}
   - component: {fileID: 1040461464}
+  - component: {fileID: 1040461465}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -6354,7 +6355,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1
 --- !u!135 &1040461459
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6423,8 +6424,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040461457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 40.4, z: -1.5}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 40.4, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 509256127}
   - {fileID: 111758417}
@@ -6464,6 +6465,20 @@ MonoBehaviour:
   _limitHeight: 1.2
   _floor: 39.2
   _startYPos: 40.4
+--- !u!114 &1040461465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040461457}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47196e1700e00424d83c36d972cc1ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _springForce: 20
+  _damping: 5
 --- !u!1 &1054192043
 GameObject:
   m_ObjectHideFlags: 0
@@ -6986,15 +7001,13 @@ MonoBehaviour:
   _planeCnt: 0
   _planeList: {fileID: 283861235}
   _planeModel:
-  - {fileID: 733218961311077031, guid: e34d137e38ba09f4e87e0ec860acf8fb, type: 3}
-  - {fileID: 7145972892317185845, guid: 279d52ac984de4b42b7bd3fdca159184, type: 3}
-  - {fileID: 8079680521132653969, guid: 2ad900474a120a844ba05d04668da858, type: 3}
-  - {fileID: 7442955534088358103, guid: 4d0fb171e699d44419f8699371fd8e23, type: 3}
-  - {fileID: 4256691710961422659, guid: b76f610237086684d8570998ebb896a1, type: 3}
-  - {fileID: 5087564797843912988, guid: 4b6b93d68219fa34982bb9074cbbd059, type: 3}
-  - {fileID: 1309916820118632435, guid: 1af20ea169088e54a9868b8976c19cd5, type: 3}
-  - {fileID: 2623637977446507948, guid: 0886180f51ccc684fb6f20e5810868b5, type: 3}
-  - {fileID: 4855916228043827949, guid: 41e3e0cefab3b754a91ccdaf68099604, type: 3}
+  - {fileID: 3019147823862747281, guid: e4e03fee57cbe6e4e88703b4c8f264be, type: 3}
+  - {fileID: 1936433652466624893, guid: 60ea45d62867b844295dfbb51e9836d7, type: 3}
+  - {fileID: 8823034822427797061, guid: ed88954003ac824438e52205b75ea716, type: 3}
+  - {fileID: 8358161957564650163, guid: f482be8a1a5399b40a3c5b21790eb299, type: 3}
+  - {fileID: 8606776425061178570, guid: 465583dc760b7f142b771ce4c69653cf, type: 3}
+  - {fileID: 7419712853946225211, guid: f612d2eede167ff44a09c77cfca0b1cf, type: 3}
+  - {fileID: 4351693627418518182, guid: efda352faae63e84c996269c9914857b, type: 3}
   _startPosition: 39.2
   _rotateValue: 120
 --- !u!1 &1999299329

@@ -27,8 +27,7 @@ public class NextRound : MonoBehaviour
         //버튼 눌린 경우
         //공의 위치 초기화
         //
-        _ballCtl.InitRound(true);
+        _ballCtl.InitRound();
         this.gameObject.SetActive(false);
-        DataManager.Instance.gameData._gameEnd = false;
     }
 }

@@ -22,8 +22,9 @@ public class PlaneManager : MonoBehaviour
 
     public void UpdatePlane()
     {
-        // Y 값 18.6 부터 0.4씩 떨어트리면서 0.0까지 생성
         float rotate = 0.0f;
+        if (DataManager.Instance.gameData._gameEnd)
+            DataManager.Instance.gameData._select = Random.Range(0, _planeModel.Count);
         _planeCnt = 0;
         for (float y = _startPosition; y >= 0.0f; y -= 0.4f)
         {
@@ -35,6 +36,7 @@ public class PlaneManager : MonoBehaviour
             gameObject.transform.parent = _planeList.transform;
             _planeCnt++;
         }
+        DataManager.Instance.gameData._gameEnd = false;
     }
     // Update is called once per frame
     void Update()
