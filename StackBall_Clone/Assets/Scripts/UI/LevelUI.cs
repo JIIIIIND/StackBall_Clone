@@ -16,7 +16,7 @@ public class LevelUI : MonoBehaviour
     [SerializeField]
     private UnityEngine.UI.Text _scoreUI;
     public int _score;
-    
+
     // Start is called before the first frame update
     void Start()
     {

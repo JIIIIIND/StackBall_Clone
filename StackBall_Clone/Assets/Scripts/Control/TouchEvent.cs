@@ -57,12 +57,18 @@ public class TouchEvent : MonoBehaviour
             _manager._planeCnt--;
             _levelUI._score++;
         }
+        else if (other.gameObject.tag == "Black")
+        {
+            _nextRound.SetActive(true);
+            _coll.isTrigger = false;
+            DataManager.Instance.SaveData();
+        }
         else
         {
             DataManager.Instance.gameData._gameEnd = true;
+            _nextRound.SetActive(true);
             _coll.isTrigger = false;
             DataManager.Instance.SaveData();
-            _nextRound.SetActive(true);
         }
     }
 

@@ -25,7 +25,6 @@ public class BallMovement : MonoBehaviour
     // Start is called before the first frame update
     public void InitRound()
     {
-        // game clear, roll select value
         this.transform.position = _startPos;
         _rig.velocity = new Vector3(0, _bounce, 0);
         _savedVelocity = _rig.velocity;
@@ -61,7 +60,7 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.transform.position.y > _floor + _limitHeight)
+        if (this.transform.position.y >= _floor + _limitHeight)
             _rig.velocity = -_savedVelocity;
     }
 }

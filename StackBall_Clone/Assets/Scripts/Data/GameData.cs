@@ -9,4 +9,5 @@ public class GameData
     public int _select;
     public int _level = 1;
     public bool _gameEnd = false;
+    public int _bestScore = 0;
 }
