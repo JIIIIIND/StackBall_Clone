@@ -7,6 +7,20 @@ public class DentBall : MonoBehaviour
     private Coroutine _denting;
     [SerializeField]
     private GameObject _moveObj;
+    [SerializeField]
+    private Material _material;
+
+    private void Start()
+    {
+        _material = this.GetComponent<MeshRenderer>().material;
+    }
+
+    public void ChangeBallColor()
+    {
+        if (_material == null)
+            _material = this.GetComponent<MeshRenderer>().material;
+        _material.color = DataManager.Instance.gameData._ballColor;
+    }
 
     public void StopDent()
     {

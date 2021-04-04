@@ -14,6 +14,10 @@ public class PlaneManager : MonoBehaviour
     [SerializeField]
     private float _rotateValue;
     private CreatePlane _create;
+    [SerializeField]
+    private Material[] materials;
+    [SerializeField]
+    private float _colorIncrease;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +50,22 @@ public class PlaneManager : MonoBehaviour
         return blackArr;
     }
 
+    void SelectColor()
+    {
+        DataManager.Instance.gameData._planeColor = materials[Random.Range(0, materials.Length)].color;
+        while (DataManager.Instance.gameData._planeColor ==
+            DataManager.Instance.gameData._ballColor)
+            DataManager.Instance.gameData._planeColor = materials[Random.Range(0, materials.Length)].color;
+    }
+
+    void ChangeColor()
+    {
+        Color color = DataManager.Instance.gameData._planeColor;
+        DataManager.Instance.gameData._planeColor = new Color(
+            color.r + _colorIncrease,
+            color.g + _colorIncrease,
+            color.b + _colorIncrease);
+    }
     public void UpdatePlane()
     {
         float rotate = 0.0f;
@@ -58,6 +78,7 @@ public class PlaneManager : MonoBehaviour
             _planeModel[DataManager.Instance.gameData._select]._model.
             GetComponent<CreatePlane>();
         CleanPanel();
+        SelectColor();
         while (y >= 0.0f)
         {
             int rand = Random.Range(1, 10);
@@ -74,6 +95,7 @@ public class PlaneManager : MonoBehaviour
                 _planeCnt++;
                 if (y <= 0.0f)
                     break;
+                ChangeColor();
             }
         }
         DataManager.Instance.gameData._gameEnd = false;

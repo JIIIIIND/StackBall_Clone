@@ -10,4 +10,6 @@ public class GameData
     public int _level = 1;
     public bool _gameEnd = false;
     public int _bestScore = 0;
+    public Color _ballColor;
+    public Color _planeColor;
 }

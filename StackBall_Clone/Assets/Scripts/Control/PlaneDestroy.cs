@@ -76,8 +76,8 @@ public class PlaneDestroy : MonoBehaviour
             else
             {
                 Vector3 dir =
-                _list[i].GetComponent<TilePosition>().
-                _posObject.transform.position - _center;
+                    _list[i].GetComponent<TilePosition>().
+                    _posObject.transform.position - _center;
                 if (dir.x > 0)
                     StartCoroutine(DestroyWaitTime(_list[i], true, isRunnings, i));
                 else

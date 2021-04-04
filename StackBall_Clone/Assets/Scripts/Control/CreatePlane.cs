@@ -21,6 +21,8 @@ public class CreatePlane : MonoBehaviour
         {
             tile = Instantiate(_baseTile,
                     new Vector3(0, posY, 0), Quaternion.Euler(90, angle, 0));
+            tile.GetComponent<Renderer>().material.color =
+                DataManager.Instance.gameData._planeColor;
             if (blackIdx < blackArr.Length && i == blackArr[blackIdx])
             {
                 // black Tile로 생성
