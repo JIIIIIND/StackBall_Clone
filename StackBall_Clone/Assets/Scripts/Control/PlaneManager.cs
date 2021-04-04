@@ -64,7 +64,6 @@ public class PlaneManager : MonoBehaviour
             int[] blackArr = GetRandomNumber(Random.Range(0, panelSize - 1), panelSize);
             for (int i = 0; i < rand; i++)
             {
-                Debug.Log(blackArr.Length);
                 GameObject gameObject = Instantiate(_planeModel[DataManager.Instance.gameData._select]._model,
                     new Vector3(0, 0, 0), Quaternion.identity);
                 gameObject.transform.parent = _planes.transform;

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5347696241117434276}
   - component: {fileID: 6120074202085906551}
   - component: {fileID: 122154415708763157}
+  - component: {fileID: 8355370979535772214}
   m_Layer: 0
   m_Name: CirclePlane
   m_TagString: Untagged
@@ -62,3 +63,18 @@ MonoBehaviour:
     type: 3}
   _angle: 40
   _planeList: []
+--- !u!114 &8355370979535772214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5347696241117434275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd2a4c20233e6447b20a4a3441902fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _list: []
+  _second: 1
+  _force: 8

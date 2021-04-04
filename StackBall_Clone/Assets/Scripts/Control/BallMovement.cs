@@ -47,14 +47,10 @@ public class BallMovement : MonoBehaviour
         //stop dent
         _dent.StopDent();
         _colParticle.Play();
-        // 세로 -> 가로
     }
-
-    // 가로 -> 세로
 
     private void OnCollisionExit(Collision collision)
     {
-        // StartDent
         _dent.StartDent();
     }
     // Update is called once per frame
